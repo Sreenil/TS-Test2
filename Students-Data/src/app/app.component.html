@@ -1,0 +1,41 @@
+<table id="studentTable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Department</th>
+      <th>Total Marks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students">
+      <td>{{ student.name }}</td>
+      <td>{{ student.age }}</td>
+      <td>{{ student.department }}</td>
+      <td>{{ student.totalMarks }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div>
+  <label for="sortField">Sort by:</label>
+  <select id="sortField" [(ngModel)]="selectedField" (change)="sortStudents()">
+    <option value="name">Name</option>
+    <option value="age">Age</option>
+    <option value="department">Department</option>
+    <option value="totalMarks">Total Marks</option>
+  </select>
+</div>
+
+<div>
+  <label for="searchTerm">Search:</label>
+  <input type="text" id="searchTerm" [(ngModel)]="searchTerm">
+  <button type="submit" (click)="filterStudents()">click</button>
+</div>
+
+
+<div>
+  <label for="minMarks">Minimum Marks:</label>
+  <input type="number" id="minMarks" [(ngModel)]="minMarks">
+  <button type="button" (click)="filterStudentsByMarks()">Filter</button>
+</div>
